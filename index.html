@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="index.css">
+<html>
+<head>
+    
+    <title>BMI Calculator</title>
+    <script>
+        function calculateBMI() {
+            var weight = parseFloat(document.getElementById("weight").value);
+            var height = parseFloat(document.getElementById("height").value) / 100; // Convert height from cm to meters
+
+            var bmi = weight / (height * height);
+            var bmiResult = document.getElementById("bmiResult");
+            bmiResult.innerHTML = "BMI Value: " + bmi.toFixed(2);
+
+            var bmiInterpretation = document.getElementById("bmiInterpretation");
+            if (bmi < 18.5) {
+                bmiInterpretation.innerHTML = "Interpretation (English): Underweight";
+                bmiInterpretation.innerHTML += "<br>Interpretation (Thai): น้ำหนักน้อย";
+            } else if (bmi < 25) {
+                bmiInterpretation.innerHTML = "Interpretation (English): Normal weight";
+                bmiInterpretation.innerHTML += "<br>Interpretation (Thai): น้ำหนักปกติ";
+            } else if (bmi < 30) {
+                bmiInterpretation.innerHTML = "Interpretation (English): Overweight";
+                bmiInterpretation.innerHTML += "<br>Interpretation (Thai): น้ำหนักเกิน";
+                
+            } else  {
+                bmiInterpretation.innerHTML = "Interpretation (English): Obese";
+                bmiInterpretation.innerHTML += "<br>Interpretation (Thai): โรคอ้วน";
+                
+                
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 class="h1">BMI Calculator</h1>
+    <div class="input-container">
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" required>
+    </div>
+    <br>
+    <div class="input-container">
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" required>
+    </div>
+    <br>
+    <button onclick="calculateBMI()">Calculate</button>
+    <br> <br> 
+    <div id="bmiResult" class="result"></div>
+    <div id="bmiInterpretation" class="result"></div>
+    <br> 
+<img class="in" src="img/hhh.jpg" alt="" srcset="">
+    
+
+
+
+</body>
+</html>
